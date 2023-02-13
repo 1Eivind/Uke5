@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handleliste</title>
+        <style>body {
+        background-color:rgba(236, 170, 26, 0.356)
+        
+    }</style>
+</head>
+
+<body>
+    <!-- Oppgave - Handleliste
+    Handleliste 🛒
+    
+    Lag din egen handleliste der man kan:
+    
+    Vise alle varer som er lagt til i handlelisten
+    Kunne legge til ny vare
+    Slette en valgt vare
+    Endre navn på en valgt vare
+    Bruk MVC, variabler, arrays og for-løkker for å løse oppgaven. -->
+
+
+
+
+    <div id="app"></div>
+
+    <script>
+        // MODEL
+        let inputtVerdi = ''
+        let handleliste = ['Melk', 'Brød', 'Majones', 'Egg', 'Smør', 'Poteter']
+
+        // VIEW
+        visning();
+        function visning() {
+            let html = '<h1>Handleliste</h1>';
+
+            for (let i = 0; i < handleliste.length; i++) {
+                html += `
+                    <li>
+                        ${handleliste[i]} 
+                        <button onclick="endreVare(${i})">Endringer</button>
+                        <button onclick="slettVare(${i})">x</button>
+                    </li> `
+            }
+
+            html += `<h1>Skriv inn nye varer her:</h1><input oninput="inputtVerdi = this.value" type="text"> <button onclick="leggtilVare()">Legg til </button>`;
+            document.getElementById("app").innerHTML = html;
+        }
+
+        // CONTROLLER
+
+        function leggtilVare() {
+            handleliste.push(inputtVerdi);
+            inputtVerdi = "";
+            visning();
+        }
+
+        function slettVare(index) {
+            handleliste.splice(index, 1);
+            visning();
+        }
+        function endreVare(index) {
+            handleliste[index] = inputtVerdi;
+            visning();
+        }
+    </script>
+</body>
+</html>

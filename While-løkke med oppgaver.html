@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Numbers
+        <div id="display"></div>
+        <button onclick="multiplyBy2()">MultiplyBy2</button>
+        <div id="text">Bjarne liker alfabetet</div>
+        <button onclick="getFirstWord()">getFirstWord</button>
+        </div>
+
+        <br>
+
+        <div>Sjekk om to random tall er like
+            <div id="sejkkrandom"></div>
+            <button onclick="sjekkRandom()">Sjekk to tilfeldige tall</button>
+            <div id="text">Skal vi sjekke tilfeldige tall</div>
+            <button onclick="getFirstWord()">trengerkanskjeikke denne knappen nå</button>
+            </div>
+
+            <div>Sjekk om to random tall er like med while-løkke
+                <div id="sejkkrandommedløkke">løkketingher</div>
+                <button onclick="sjekkRandommedløkke()">Sjekk to tilfeldige tall MED LØKKE</button>
+                <div id="text">Skal vi sjekke tilfeldige tall</div>
+                </div>
+
+    <script>
+    function multiplyBy2(){
+        let number = 2;
+        while(number <= 100) {
+            number *=2; //samme som number = number*2;
+            document.getElementById('display').innerHTML += number + ' ';
+        }
+    }
+    function getFirstWord(){
+        let textContainsA = true;
+        let text = 'Bjarne liker alfabetet';
+        let separator = '';
+        let firstWord = '';
+        let index = 0;
+
+        while(separator !== ' '){
+            if(text.charAt(index) === ' '){
+                separator = ' ';
+            }
+            firstWord += text.charAt(index);
+            index++;
+            document.getElementById('text').innerHTML += firstWord + ' ';
+        }
+
+        
+    }
+
+    function sjekkRandom(){
+
+        let Random1 = Math.ceil(Math.random()*5);
+        let X = Math.ceil(Math.random()*5);
+        document.getElementById('sejkkrandommedløkke').innerHTML += `De tilfeldige tallene er ${Random1} og ${X}`;
+        if(Random1 === X){
+            document.getElementById('sejkkrandom').innerHTML += ' og TALLENE ER FAKTISK LIKE OGSÅ!!!';
+        }
+        else{
+                document.getElementById('sejkkrandom').innerHTML += ' og de er ikke like!!!';
+
+            }
+            
+
+            
+        }
+    ///ok, men brukte ikke løkke, så prøv igjen
+    
+    
+    function sjekkRandommedløkke(){
+        let Random1 = Math.ceil(Math.random()*5);
+        let X = Math.ceil(Math.random()*5);
+while (Random1 != X){
+    sjekkRandommedløkke()
+}
+document.getElementById('sejkkrandommedløkke').innerHTML += `Equal number found: ${X}, ${Random1}`
+    }
+
+
+// Lag en funksjon som generer 2 random tall så lenge tallene er ulike fra hverandre.
+//Når de er like print ut teksten "Equal numbers found" - samt hvilke tall det ble =)
+// kan eventuelt også console.log() tallene for hver runde
+// OBS: Nettleseren er ikke glad i å oppdatere view mens i en while-loop!
+    </script>
+</body>
+</html>

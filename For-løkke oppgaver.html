@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Letters
+        <div id="letters">testher</div>
+        <button onclick="printLetters('Hei på deg')">Print letters</button>
+        <button onclick="reverserText('skal vi reversere?')">la oss prøve å reversere</button>
+    </div>
+<br>
+    <div>Vokalgøy
+        <div id="vokaler">Her skal vi teste vokalteller</div>
+        <button onclick="vokalTeller('Hei på deg')">Tell vokaler</button>
+    </div>
+    <br>
+<!-- yo tyest comments work here too with Ctrl K C 
+    se video:
+https://www.youtube.com/watch?v=89FjiL_MXho&t=2s
+-->
+    <script>
+//Legg til et mellomrom mellom hvert tegn i tekststringen
+//H e i p å d e g
+// 0 1 2 3
+
+function printLetters(inputString){
+    let text = '';
+   //  document.getElementById("letters").innerHTML += inputString;
+for(let index=0; index<=inputString.length; index++){
+    text = text + inputString.charAt(index) + ' ';
+}
+document.getElementById("letters").innerHTML = text;
+}
+
+//Oppgave:
+// Lag en funksjon som teller opp antall vokaler i en string ved hjelp av
+//en for-løkke
+// Vokaler: a, e, i, o, u, y, æ, ø, å
+// Bruk en variabel for hver av vokalene feks let aCounter  = 0 som plusses
+//oppover dersom du finner bokstaven i tekststringen
+//(oppskrift på forløkker: lag en startvariabel og sett startverdi,
+//en betingelse for hvor lenge løkken skal kjøre,
+//og hva som skal skje med startvariabel)
+//function  tellVokaler(inputString){
+ //   let text = '';
+   // for(let aCounter = 0; ; aCounter++)
+
+//}
+
+// Oppgave:
+// Lag en funksjon som tar input fra brukeren og reverserer teksten ved hjelp
+//av en for-løkke
+
+function reverserText(inputString){
+    let text = '';
+    let stopValue = 0;
+    for(let index = inputString.length; index>=stopValue; index--){
+        text = text + inputString.charAt(index);
+    }
+    document.getElementById("letters").innerHTML = text;
+}
+
+//my first bad attempt function tellVokaler(inputString){
+// let a = 'a'
+// let e = 'e'
+// let i = 'i'
+// let o = 'o'
+// let u = 'u'
+// let y = 'y'
+// let æ = 'a'
+// let ø = 'ø'
+// let å = 'å'
+// for(let vokalTeller = 0; vokalTeller<=inputString.length; if(charAt.){vokalTeller++}){}
+
+// }
+
+//NOW A REAL SOLUTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// program to count the number of vowels in a string
+
+// defining vowels
+const vowels = ["a", "e", "i", "o", "u", "æ", "ø", "å"]
+
+function countVowel(str) {
+    // initialize count
+    let count = 0;
+
+    // loop through string to test if each character is a vowel
+    for (let letter of str.toLowerCase()) {
+        if (vowels.includes(letter)) {
+            count++;
+        }
+    }
+
+    // return number of vowels
+    return count
+}
+
+// take input
+const string = prompt('Enter a string: ');
+
+const result = countVowel(string);
+
+console.log(result);
+
+</script>
+</body>
+</html>

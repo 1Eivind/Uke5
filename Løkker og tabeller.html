@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Løkker og tabeller</h3>
+    <ul>
+        <li>
+            Løkker
+            <ul>
+                <li><tt>while</tt></li>
+                <li><tt>for</tt></li>
+            </ul>
+        </li>
+        <li>Tabeller - "array"</li>
+    </ul>
+
+    <hr/>
+<script type="text/javascript">
+
+var names = ['Per', 'Pål', 'Espen', 'Entil', null];
+
+for (var i = 0; i < names.length ; i++){
+    if (names[i] != null){
+        document.write('Hei, ' + names[i] + '!<br/>');
+
+    }
+    
+}
+
+//let's push names which gives the same result!!!!
+
+var pushnames = [];
+pushnames.push('Per');
+pushnames.push('Pål');
+pushnames.push('pushetEspen');
+pushnames[17] = 'A17';
+console.log(pushnames);
+
+for (var i = 0; i < pushnames.length ; i++){
+ //   if (pushnames[i] != null){
+        document.write('Hei, ' + pushnames[i] + '!<br/>');
+
+  //  }
+    
+}
+//document.writeln(names.length);
+//ocument.writeln(names[0])
+
+
+    for(var i = 1; i <= 9; i++){
+         document.write('Eivind' + i + '<br/>');
+        
+
+    }
+       
+    // var i = 1;
+    // while(i <= 10){ //while er gjentakende if-setning!!!
+    //     document.write('Eivind');
+    //     i++;
+
+    // }
+
+   
+</script>
+
+</body>
+</html>
